@@ -7,21 +7,6 @@ class AppLayoutbuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constrains) {
-      return Flex(
-        direction: Axis.horizontal,
-        children: List.generate((constrains.constrainWidth()/randomDivider).floor(), (index) => 
-          const SizedBox(
-            width: 3,
-            height: 1,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      );
-    });
+    return const Center(child: Text("- - - - - - - -", style: TextStyle(color: Colors.white),));
   }
 }

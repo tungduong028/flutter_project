@@ -7,6 +7,7 @@ class AppStyles {
   static Color bgColor = const Color(0xFFeeedf2);
   static Color textColor = const Color(0xFF3b3b3b);
   static Color ticketBlue = const Color(0xFF526799);
+  static Color ticketOrange = const Color.fromARGB(255, 231, 56, 56);
   static TextStyle textStyle =
       TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: textColor);
   static TextStyle headLineStyle1 =
@@ -15,4 +16,6 @@ class AppStyles {
       TextStyle(fontSize: 21, fontWeight: FontWeight.bold, color: textColor);
   static TextStyle headLineStyle3 =
       const TextStyle(fontSize: 17, fontWeight: FontWeight.w500);
+  static TextStyle headLineStyle4 =
+      const TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
 }

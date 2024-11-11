@@ -18,11 +18,24 @@ class AllTicket extends StatelessWidget {
           width: 350,
           child: ListView.builder(
             itemCount: ticketList.length,
-            itemBuilder: (context, index) =>
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: TicketView(ticketInfo: ticketList[index], hasRightMargin: false,),
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  AppRoutes.ticketScreen,
+                  arguments: {
+                    "index": index
+                  },
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.only(top: 20),
+                child: TicketView(
+                  ticketInfo: ticketList[index],
+                  hasRightMargin: false,
                 ),
+              ),
+            ),
           ),
         ),
       ),

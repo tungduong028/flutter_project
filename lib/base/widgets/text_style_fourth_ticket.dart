@@ -1,22 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/base/res/styles/app_styles.dart';
 
 class TextStyleFourthTicket extends StatelessWidget {
-  const TextStyleFourthTicket({super.key, required this.text, required this.isAlignEnd});
+  const TextStyleFourthTicket({super.key, required this.text, this.isAlign=TextAlign.end, this.isColor});
 
   final String text;
-  final bool isAlignEnd;
+  final TextAlign isAlign;
+  final bool? isColor;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 100,
+      width: 70,
       child: Text(
         text,
-        textAlign: isAlignEnd ? TextAlign.end : null,
-        style: AppStyles.headLineStyle4
-            .copyWith(color: Colors.white),
+        textAlign: isAlign,
+        style: isColor==null ? AppStyles.headLineStyle4
+            .copyWith(color: Colors.white) : AppStyles.headLineStyle4,
       ),
     );
   }

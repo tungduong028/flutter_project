@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppLayoutbuilderWidget extends StatelessWidget {
-  const AppLayoutbuilderWidget({super.key, required this.randomDivider});
-
-  final int randomDivider;
+  const AppLayoutbuilderWidget({super.key, this.isColor});
+  final bool? isColor;
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("- - - - - - - -", style: TextStyle(color: Colors.white),));
+    return Center(child: Text("- - - - - - - -", style: TextStyle(color: isColor==null ? Colors.white : Colors.lightBlueAccent),));
   }
 }

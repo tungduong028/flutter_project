@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/base/utils/all_json.dart';
 import 'package:flutter_project/base/widgets/app_double_text.dart';
-import 'package:flutter_project/base/widgets/hotel/hotel.dart';
+import 'package:flutter_project/screens/home/widgets/hotel.dart';
 import 'package:flutter_project/base/widgets/ticket_view.dart';
 
-import '../base/res/media.dart';
-import '../base/res/styles/app_styles.dart';
+import '../../base/res/media.dart';
+import '../../base/res/styles/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -83,9 +83,16 @@ class HomeScreen extends StatelessWidget {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return TicketView(
-                          ticketInfo: ticketList[index],
-                          hasRightMargin: true,
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoutes.ticketScreen, arguments: {
+                              "index": index
+                            },);
+                          },
+                          child: TicketView(
+                            ticketInfo: ticketList[index],
+                            hasRightMargin: true,
+                          ),
                         );
                       },
                       itemCount: ticketList.length,
@@ -105,11 +112,24 @@ class HomeScreen extends StatelessWidget {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemCount: hotelList.length,
-                      itemBuilder: (context, index) => Hotel(hotel: hotelList[index],),
-                      separatorBuilder: (context, index) => const SizedBox(width: 25,),
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, AppRoutes.hotelDetail, arguments: {
+                            "index": index
+                          },);
+                        },
+                        child: Hotel(
+                          hotel: hotelList[index],
+                        ),
+                      ),
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 25,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                 ],
               ),
             ),

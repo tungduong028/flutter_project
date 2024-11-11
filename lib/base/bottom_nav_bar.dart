@@ -21,7 +21,8 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Obx((){
+      return Scaffold(
         body: appScreens[controller.selectedIndex.value],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.selectedIndex.value,
@@ -48,5 +49,6 @@ class BottomNavBar extends StatelessWidget {
                 label: "Profile"),
           ],
         ));
+    });
   }
 }
